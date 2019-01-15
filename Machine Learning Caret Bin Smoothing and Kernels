@@ -1,3 +1,4 @@
+# Harvard PH125 Series Caret/Bin Smoothing
 Span <- 7
 fit <- with (polls_2008, ksmooth(day, margin, x.points = day, kernel="box", bandwidth= span))
 
