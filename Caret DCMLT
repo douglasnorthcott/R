@@ -1,0 +1,10 @@
+## Basic
+data(mtcars)
+
+model <- lm(mpg ~ hp, mtcars[1:20, })
+predicted <- predict(model, mtcars[1:20, ], type= "response")
+
+actual <- mtcars[1:20, "mpg"]
+
+sqrt(mean((predict-actual)^2))
+
