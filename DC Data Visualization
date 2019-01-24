@@ -1,0 +1,19 @@
+p <- ggplot(iris.wide, aes(x= Length, y= Width, col= Part))+
+    geom_point(position= posititon_jitter(), alpha= 0.7+
+    scale_color_brewer(palette='Set1'+
+    coord_fixed()
+    
+p+ facet_grid(. ~Species)
+
+ggplot(iris.tody, aes(x= Measure, y= Value, col=Part))+
+        geom_jitter()+
+        facet_grid(Species~.)
+
+## Themes ##
+
+z +
+    theme(panel.grid= element_blank(), axis.line = element_line("red"),
+          axis.ticks = element_line("red"))
+          
+d +
+  geom_point(alpha = 0.6, position = position_jitter(width = 0.2))
