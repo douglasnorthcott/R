@@ -17,3 +17,7 @@ z +
           
 d +
   geom_point(alpha = 0.6, position = position_jitter(width = 0.2))
+
+d+ geom_point(alpha= 0.6, position = position_jitter(width= 0.2)) +
+    stat_summary(fun.data = mean_sd, mult= 1, width = 0.2, col= "red")
+    
