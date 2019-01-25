@@ -1,3 +1,5 @@
+Library(tidyverse)
+
 p <- ggplot(iris.wide, aes(x= Length, y= Width, col= Part))+
     geom_point(position= posititon_jitter(), alpha= 0.7+
     scale_color_brewer(palette='Set1'+
@@ -25,4 +27,11 @@ ggplot(HairCol, aes(x= n/2, y= Value, fill= fillin, width=n))+
         facet_grid(.~sex)+
         scale_fill_identity()+
         coor_polar(theta= "y")+
+        theme(...)
+
+ggplot(HairCol, aes(x= Sex, y=Value, fill = fillin, width= nprop))+
+        geom_bar(stat="identity", position="fill")+
+        scale_y_continuous("proportion")+
+        scale_x_discrete("I", expand = c(0,0)+
+        scale_fill_identity()+
         theme(...)
