@@ -1,0 +1,14 @@
+# Lubridate
+
+ymd("2013-02-27")
+
+dmy(" 27/2/13")
+
+parse_date_time(c("Feb 27th, 2017", "27th Feb 2017")
+    order = c("mdy", "dmy"))
+    
+akl_daily <- akl_daily %>%
+  mutate(
+    year = year(date),
+    yday = yday(date),
+    month = month(date, label = TRUE)
