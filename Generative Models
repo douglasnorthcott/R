@@ -27,6 +27,8 @@ ind <- which(tissue_gene_expression$y %in% c("cerebellum", "hippocampus"))
 y <- droplevels(tissue_gene_expression$y[ind])
 x <- tissue_gene_expression$x[ind, ]
 x <- x[, sample(ncol(x), 10)]
+fit_qda <- train(x, y, method = "qda")
+fit_qda$results["Accuracy"]
 
 ## 4
 
