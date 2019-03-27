@@ -1,0 +1,38 @@
+library(dslabs)
+library(tidyverse)
+library(caret)
+mnist <- read_mnist()
+
+names(mnist)
+
+dim(mnist$train$images)
+
+class(mnist$train$images)
+
+table(mnist$train$labels)
+
+set.seed(123)
+
+index <-sample(nrow(mnist$train$images), 1000)
+
+x <- mmnist$train$images[index,]
+
+y <- factor(mnist$train$labels[index])
+
+index <- sample(nrow(mmnist$train$images), 1000)
+
+x_test <- mnist$train$images[index,]
+
+y_test <- factor(mnist$train$labels[index])
+
+# Preprocessing MNIST Data
+
+library(matrixStats)
+
+sds <- colSds(x)
+
+qplot(sds, bins = 256, color = I("black"))
+
+col_index <- setdiff(1:ncol(x), nzv)
+
+length(col_index)
