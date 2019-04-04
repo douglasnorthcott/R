@@ -1,0 +1,15 @@
+
+
+issue_price <- (face * rate * factor1 + face * factor2)
+
+interestexppenseJune30 <- issue_price * market
+ 
+interestpaid = issue_price * rate
+
+premiumamortized1 =  interestpaid - interestexppenseJune30 
+
+interestexppenseDec31<- (issue_price - premiumamortized1) * market
+
+premiumamortized2 <- interestexppenseDec31 - interestpaid
+
+netbondpayable <- issue_price - premiumamortized1 - premiumamortized2
