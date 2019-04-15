@@ -1,0 +1,34 @@
+
+## Making predictions with logistic regression
+
+m <- glm(y ~ x1 + x2 + x3, data = my_dataset, family = "binomial")
+
+prob <- predict(m, test_dataset, type = "response")
+
+pred <- ifelse(prob > 0.50, 1, 0)
+
+# ROC Curves and AUC
+
+library(pROC)
+
+ROC <- roc(donors$donated, donors$donation_prob)
+
+plot(ROC, col= "blue")
+
+auc(ROC)
+
+# Categorical Coding
+
+donors$weath_rating <- factor(donors$wealth_rating, levels = c(0, 1, 2, 3), labels = c("Unknown", "Low", "Medium", "High")
+
+donors$wealth_rating <- relevel(donors$weath_rating, ref="Medium")
+
+summary(glm(donated~ wealth_rating, data = donors, family = "binomial")
+
+# Missing Data
+
+summary(donors$age)
+
+donors$imputed_age <- ifelse(is.na(donors$age),round(mean(donors$age, na.rm = TRUE), 2), donors$age)
+
+donors$missing_age <- ifelse(is.na(donors$age), 1, 0)
