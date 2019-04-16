@@ -32,3 +32,21 @@ summary(donors$age)
 donors$imputed_age <- ifelse(is.na(donors$age),round(mean(donors$age, na.rm = TRUE), 2), donors$age)
 
 donors$missing_age <- ifelse(is.na(donors$age), 1, 0)
+
+rfm_model <- glm(donated ~ recency * frequency + money, data = donors, family = "binomial")
+
+summary(rfm_model)
+
+library(pROC)
+
+ROC <- roc(donors$donated, rfm_prob)
+
+plot(ROC, col= "red")
+
+auc(ROC)
+
+null_model <- glm(donated ~ 1, data = donors, family = "binomial")
+
+full_model <- glm(donated ~ ., data = donors, family = "binomial")
+
+step_model <- step(null_model, scope = list, (lower + null_model, upper = full_model), direction = "forward")
