@@ -76,8 +76,8 @@ summary(model)
  
 model <- glm(Rating ~ ., family = binomial(link = "logit"),
 validation)
-> p <- predict(model, test, type = "response")
-> summary(p)
+p <- predict(model, test, type = "response")
+summary(p)
 # Turn probabilities into classes and look at their frequencies
-> p_class <- ifelse(p > .50, "M", "R")
-> table(p_class) 
+ p_class <- ifelse(p > .50, "M", "R")
+ table(p_class) 
